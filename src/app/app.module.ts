@@ -16,6 +16,9 @@ import { MatTableModule } from '@angular/material/table';
 import { StudentTableComponent } from './components/student-table/student-table.component';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { AddressComponent } from './components/address/address.component';
+import { MatListModule } from '@angular/material/list';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     FormComponent,
     StudentTableComponent,
+    AddressComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatIconModule,
     HttpClientModule,
+    MatListModule,
   ],
   providers: [
     {
