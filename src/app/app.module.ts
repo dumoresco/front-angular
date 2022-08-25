@@ -18,6 +18,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { AddressComponent } from './components/address/address.component';
 import { MatListModule } from '@angular/material/list';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+import { FormUpdateComponent } from './components/form-update/form-update.component';
+
+const routes: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  { path: 'register', component: FormComponent },
+];
 
 @NgModule({
   declarations: [
@@ -27,6 +38,7 @@ import { MatListModule } from '@angular/material/list';
     FormComponent,
     StudentTableComponent,
     AddressComponent,
+    FormUpdateComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +53,9 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     HttpClientModule,
     MatListModule,
+    FormsModule,
+    ReactiveFormsModule,
+    [RouterModule.forRoot(routes)],
   ],
   providers: [
     {
@@ -50,6 +65,9 @@ import { MatListModule } from '@angular/material/list';
 
     HttpClientModule,
     FormComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
   ],
   bootstrap: [AppComponent],
 })

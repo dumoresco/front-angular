@@ -1,16 +1,18 @@
 export interface Student {
-  id?: string;
+  id: string;
   firstName: string;
   lastName: string;
   age: number;
   gender: string;
+  email: string;
+  cep: string;
   document: string;
-  address?: {
+  address: {
     cep: string;
-    logradouro: string;
-    complemento: string;
-    bairro: string;
-    localidade: string;
+    logradouro: string | null;
+    complemento: string | null;
+    bairro: string | null;
+    localidade: string | null;
     uf: string;
   };
 }

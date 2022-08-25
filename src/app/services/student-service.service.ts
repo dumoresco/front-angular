@@ -9,20 +9,32 @@ import { Student } from '../models/Students';
 export class StudentServiceService {
   constructor(private http: HttpClient) {}
 
+  status: any;
+
   BASE_URL = 'http://localhost:8080/v1/students';
 
   public getStudents() {
     return this.http.get<Student[]>(`${this.BASE_URL}`).pipe(tap(console.log));
   }
 
-  public getStudentsById(id: string) {
+  public getStudentsById(id: string): Observable<Student> {
     return this.http
       .get<Student[]>(this.BASE_URL + '/' + id)
       .pipe(tap(console.log));
   }
 
-  public saveStudent(student: Student): Observable<Student> {
-    return this.http.post<Student>(this.BASE_URL, student);
+  public saveStudent(student: any) {
+    return this.http.post(this.BASE_URL, student);
+  }
+
+  public deleteStudent(studentId: String) {
+    return this.http
+      .delete(this.BASE_URL + '?id=' + studentId)
+      .subscribe(() => (this.status = 'Delete successful'));
+  }
+
+  public updateStudent(studentId: string, student: any) {
+    return this.http.put<Student>(this.BASE_URL + '/' + studentId, student);
   }
 
   httpOptions = {

@@ -3,15 +3,31 @@
     <button mat-flat-button color="warn" (click)="onNoClick()">Close</button>
   </div>
 
-  <mat-list-item><strong>Cep: </strong> </mat-list-item>
+  <mat-list-item
+    ><strong>Cep: {{ student.address.cep }}</strong>
+  </mat-list-item>
   <mat-divider></mat-divider>
-  <mat-list-item><strong>Logradouro: </strong> </mat-list-item>
+  <mat-list-item
+    ><strong>Logradouro: {{ student.address.logradouro }}</strong>
+  </mat-list-item>
   <mat-divider></mat-divider>
-  <mat-list-item><strong>Complemento: </strong></mat-list-item>
+  <mat-list-item
+    ><strong
+      >Complemento: {{ student.address.complemento }}</strong
+    ></mat-list-item
+  >
   <mat-divider></mat-divider>
-  <mat-list-item><strong>Bairro: </strong></mat-list-item>
+  <mat-list-item
+    ><strong>Bairro: {{ student.address.bairro }}</strong></mat-list-item
+  >
   <mat-divider></mat-divider>
-  <mat-list-item><strong>Localidade: </strong></mat-list-item>
+  <mat-list-item
+    ><strong
+      >Localidade: {{ student.address.localidade }}</strong
+    ></mat-list-item
+  >
   <mat-divider></mat-divider>
-  <mat-list-item><strong>UF: </strong></mat-list-item>
+  <mat-list-item
+    ><strong>UF: {{ student.address.uf }}</strong></mat-list-item
+  >
 </mat-list>
