@@ -20,36 +20,32 @@ export class FormUpdateComponent implements OnInit {
   formulario!: FormGroup;
   students?: Student;
 
-  form = (this.formulario = new FormGroup(
-    {
-      firstName: new FormControl(),
-      lastName: new FormControl(),
-      age: new FormControl(),
-      document: new FormControl(),
-      cep: new FormControl(),
-      gender: new FormControl(),
-      email: new FormControl(),
-    },
-    [Validators.required]
-  ));
+  cep = this.data.address.cep;
+  cepFormatado = this.cep.replace(/-/g, '');
 
   ngOnInit(): void {
-    this.form.patchValue({
-      firstName: this.data.firstName,
-      lastName: this.data.lastName,
-      age: this.data.age,
-      cep: this.data.address.cep,
-      document: this.data.document,
-      gender: this.data.gender,
-      email: this.data.email,
+    this.formulario = new FormGroup({
+      firstName: new FormControl(this.data.firstName, Validators.required),
+      lastName: new FormControl(this.data.lastName, Validators.required),
+      age: new FormControl(this.data.age, Validators.required),
+      document: new FormControl(this.data.document, Validators.required),
+      cep: new FormControl(this.cepFormatado, Validators.required),
+      gender: new FormControl(this.data.gender, Validators.required),
+      email: new FormControl(this.data.email, Validators.required),
     });
+
+    console.log(this.cep, this.cepFormatado);
   }
 
   updateStudent(): void {
     console.log(this.data.id, this.formulario.value);
-    this.studentService
-      .updateStudent(this.data.id, this.formulario.value)
-      .subscribe((data) => console.log('ID' + this.data.id + ' modificado'));
+    if (this.formulario.valid) {
+      this.studentService
+        .updateStudent(this.data.id, this.formulario.value)
+        .subscribe((data) => console.log('ID' + this.data.id + ' modificado'));
+    }
+
+    window.location.reload();
   }
 
   onNoClick(): void {

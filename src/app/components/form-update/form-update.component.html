@@ -82,6 +82,7 @@
       class="btn-create"
       (click)="updateStudent()"
       type="submit"
+      [disabled]="!formulario.valid"
     >
       Update
     </button>

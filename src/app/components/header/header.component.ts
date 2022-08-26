@@ -1,5 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { HomeComponent } from 'src/app/views/home/home.component';
 import { FormComponent } from '../form/form.component';
 
 @Component({
@@ -9,6 +11,8 @@ import { FormComponent } from '../form/form.component';
 })
 export class HeaderComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
+
+  router!: Router;
 
   ngOnInit(): void {}
 

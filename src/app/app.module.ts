@@ -19,16 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddressComponent } from './components/address/address.component';
 import { MatListModule } from '@angular/material/list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { FormUpdateComponent } from './components/form-update/form-update.component';
-
-const routes: Routes = [
-  {
-    path: 'home',
-    component: HomeComponent,
-  },
-  { path: 'register', component: FormComponent },
-];
+import { SuccsessComponent } from './components/succsess/succsess.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +32,7 @@ const routes: Routes = [
     StudentTableComponent,
     AddressComponent,
     FormUpdateComponent,
+    SuccsessComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +49,6 @@ const routes: Routes = [
     MatListModule,
     FormsModule,
     ReactiveFormsModule,
-    [RouterModule.forRoot(routes)],
   ],
   providers: [
     {

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Student } from 'src/app/models/Students';
 import { StudentServiceService } from 'src/app/services/student-service.service';
 import { AddressComponent } from '../address/address.component';
@@ -16,10 +17,8 @@ export interface DialogData {
   styleUrls: ['./student-table.component.css'],
 })
 export class StudentTableComponent implements OnInit {
-  students: Student[] = [];
-  student!: Student[];
-
-  id?: string;
+  public students$?: Observable<Student[]>;
+  student$!: Student[] | any;
 
   firstName!: string;
   lastName!: string;
@@ -34,27 +33,23 @@ export class StudentTableComponent implements OnInit {
     public dialog: MatDialog,
     public router: Router
   ) {}
+
   ngOnInit(): void {
-    this.studentService.getStudents().subscribe((data) => {
-      this.students = data;
+    this.getInitialData();
+  }
+
+  getInitialData(): void {
+    this.students$ = this.studentService.getStudents();
+    this.students$.subscribe((data) => {
+      this.student$ = data;
     });
   }
 
   deleteStudent(id: string) {
-    console.log(id);
+    console.log(id + ' deleted!');
     this.studentService.deleteStudent(id);
+    window.location.reload();
   }
-
-  // ELEMENT_DATA: Student[] = [
-  //   {
-  //     firstName: 'Eduardo',
-  //     lastName: 'Moresco',
-  //     age: 20,
-  //     gender: 'Masculino',
-  //     document: '877.441.630-87',
-  //     postalcode: '91740-840',
-  //   },
-  // ];
 
   displayedColumns: string[] = [
     'id',
@@ -74,6 +69,7 @@ export class StudentTableComponent implements OnInit {
       width: '500px',
       data: { id: id },
     });
+
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
     });

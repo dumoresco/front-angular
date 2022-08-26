@@ -82,6 +82,7 @@
       class="btn-create"
       (click)="saveStudent()"
       type="submit"
+      [disabled]="!formulario.valid"
     >
       Create
     </button>

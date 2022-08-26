@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { Student } from '../models/Students';
 
@@ -7,13 +8,12 @@ import { Student } from '../models/Students';
   providedIn: 'root',
 })
 export class StudentServiceService {
+  router!: Router;
   constructor(private http: HttpClient) {}
-
   status: any;
-
   BASE_URL = 'http://localhost:8080/v1/students';
 
-  public getStudents() {
+  public getStudents(): Observable<Student[]> {
     return this.http.get<Student[]>(`${this.BASE_URL}`).pipe(tap(console.log));
   }
 
