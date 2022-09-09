@@ -1,12 +1,39 @@
 table {
   width: 100%;
+  background-color: #2e2e33;
 }
-table tr:nth-child(even) {
-  background-color: #f2f2f2;
+
+table td {
+  color: #6f6e6e;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+}
+
+table tr:hover td {
+  color: #afafaf;
+}
+table tr:hover {
+  cursor: pointer;
+  background-color: #36363c;
+  color: #afafaf;
+}
+
+table th {
+  color: #d1c2c2;
+  font-weight: 700;
+}
+
+table th:hover td {
+  background-color: #2e2e33;
 }
 
 .btn-address {
   border-radius: 5px;
+  border-color: #6f6e6e;
+}
+
+.btn-address:hover {
+  border-color: #fff;
 }
 
 .btn-actions {
@@ -16,14 +43,32 @@ table tr:nth-child(even) {
 
 .btn-actions button {
   height: 30px;
-
+  color: #aaaaaa;
+  background-color: #4e4e4e;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
   cursor: pointer;
 }
 
-.btn-delete {
-  color: rgb(219, 43, 43);
-  margin-right: 20px;
+.btn-actions button:hover {
+  color: #fff;
 }
-.btn-edit {
-  color: rgb(255, 156, 27);
+
+.btn-actions .btn-delete {
+  margin-right: 10px;
+}
+::ng-deep .matmenu {
+  background-color: #272727 !important;
+  border: 1px solid #36363b !important;
+  width: 400px;
+}
+
+::ng-deep .matmenu p {
+  color: #4e4d4d;
+}
+
+::ng-deep .matmenu strong {
+  font-weight: 700;
+  color: #6a6969;
 }

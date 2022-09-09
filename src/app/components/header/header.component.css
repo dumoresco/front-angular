@@ -1,5 +1,5 @@
 mat-toolbar {
-  background-color: #060606;
+  background-color: #2e2e33;
 }
 
 span {
@@ -18,7 +18,7 @@ span {
 }
 
 button {
-  background-color: #1fb622;
+  background-color: #13ab47;
   color: #fff;
 
   display: flex;

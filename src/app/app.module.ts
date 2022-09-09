@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FormUpdateComponent } from './components/form-update/form-update.component';
 import { SuccsessComponent } from './components/succsess/succsess.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SuccsessComponent } from './components/succsess/succsess.component';
     MatListModule,
     FormsModule,
     ReactiveFormsModule,
+    MatMenuModule,
   ],
   providers: [
     {

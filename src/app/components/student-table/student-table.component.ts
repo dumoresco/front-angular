@@ -55,14 +55,13 @@ export class StudentTableComponent implements OnInit {
     'id',
     'firstName',
     'lastName',
+    'email',
     'age',
     'gender',
     'document',
     'postalcode',
     'action',
   ];
-
-  // dataSource = this.ELEMENT_DATA;
 
   openFullAddress(id: string): void {
     const dialogRef = this.dialog.open(AddressComponent, {

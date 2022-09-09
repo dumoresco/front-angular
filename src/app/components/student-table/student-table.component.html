@@ -14,7 +14,10 @@
     <th mat-header-cell *matHeaderCellDef>Last name</th>
     <td mat-cell *matCellDef="let student">{{ student.lastName }}</td>
   </ng-container>
-
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let student">{{ student.email }}</td>
+  </ng-container>
   <ng-container matColumnDef="age">
     <th mat-header-cell *matHeaderCellDef>Age</th>
     <td mat-cell *matCellDef="let student">{{ student.age }}</td>
@@ -33,11 +36,43 @@
   <ng-container matColumnDef="postalcode">
     <th mat-header-cell *matHeaderCellDef>Postalcode</th>
     <td mat-cell *matCellDef="let student">
-      <button
-        mat-stroked-button
-        (click)="openFullAddress(student.id)"
-        class="btn-address"
-      >
+      <button [matMenuTriggerFor]="menu" mat-stroked-button class="btn-address">
+        <mat-menu class="matmenu" #menu="matMenu">
+          <p mat-menu-item>
+            Cep:
+            <strong>{{
+              student.address.cep ? student.address.cep : "Não encontrado"
+            }}</strong>
+          </p>
+          <p mat-menu-item>
+            Logradouro:
+            <strong>{{
+              student.address.logradouro
+                ? student.address.logradouro
+                : "Não encontrado"
+            }}</strong>
+          </p>
+          <p mat-menu-item>
+            Bairro:
+            <strong>{{
+              student.address.bairro ? student.address.bairro : "Não encontrado"
+            }}</strong>
+          </p>
+          <p mat-menu-item>
+            Localidade:
+            <strong>{{
+              student.address.localidade
+                ? student.address.localidade
+                : "Não encontrado"
+            }}</strong>
+          </p>
+          <p mat-menu-item>
+            UF:
+            <strong>{{
+              student.address.uf ? student.address.uf : "Não encontrado"
+            }}</strong>
+          </p>
+        </mat-menu>
         {{ student.address.cep }}
       </button>
     </td>
