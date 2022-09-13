@@ -20,8 +20,7 @@ export class FormUpdateComponent implements OnInit {
   formulario!: FormGroup;
   students?: Student;
 
-  cep = this.data.address.cep;
-  cepFormatado = this.cep.replace(/-/g, '');
+  cep = this.data.address.cep ? this.data.address.cep.replace(/-/g, '') : '';
 
   ngOnInit(): void {
     this.formulario = new FormGroup({
@@ -29,12 +28,10 @@ export class FormUpdateComponent implements OnInit {
       lastName: new FormControl(this.data.lastName, Validators.required),
       age: new FormControl(this.data.age, Validators.required),
       document: new FormControl(this.data.document, Validators.required),
-      cep: new FormControl(this.cepFormatado, Validators.required),
+      cep: new FormControl(this.cep, Validators.required),
       gender: new FormControl(this.data.gender, Validators.required),
       email: new FormControl(this.data.email, Validators.required),
     });
-
-    console.log(this.cep, this.cepFormatado);
   }
 
   updateStudent(): void {

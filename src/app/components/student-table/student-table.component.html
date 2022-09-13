@@ -73,7 +73,7 @@
             }}</strong>
           </p>
         </mat-menu>
-        {{ student.address.cep }}
+        {{ student.address.cep ? student.address.cep : "Cep não encontrado" }}
       </button>
     </td>
   </ng-container>
