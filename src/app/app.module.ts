@@ -16,7 +16,6 @@ import { MatTableModule } from '@angular/material/table';
 import { StudentTableComponent } from './components/student-table/student-table.component';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import { AddressComponent } from './components/address/address.component';
 import { MatListModule } from '@angular/material/list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -31,7 +30,6 @@ import { MatMenuModule } from '@angular/material/menu';
     HomeComponent,
     FormComponent,
     StudentTableComponent,
-    AddressComponent,
     FormUpdateComponent,
     SuccsessComponent,
   ],
@@ -51,6 +49,7 @@ import { MatMenuModule } from '@angular/material/menu';
     FormsModule,
     ReactiveFormsModule,
     MatMenuModule,
+    MatIconModule,
   ],
   providers: [
     {

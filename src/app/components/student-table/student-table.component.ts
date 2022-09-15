@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Student } from 'src/app/models/Students';
 import { StudentServiceService } from 'src/app/services/student-service.service';
-import { AddressComponent } from '../address/address.component';
 import { FormUpdateComponent } from '../form-update/form-update.component';
 
 export interface DialogData {
@@ -63,17 +62,6 @@ export class StudentTableComponent implements OnInit {
     'postalcode',
     'action',
   ];
-
-  openFullAddress(id: string): void {
-    const dialogRef = this.dialog.open(AddressComponent, {
-      width: '500px',
-      data: { id: id },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-    });
-  }
 
   openEditStudent(
     firstName: string,
