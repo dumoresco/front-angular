@@ -30,7 +30,7 @@ export class FormComponent implements OnInit {
       lastName: new FormControl('', Validators.required),
       age: new FormControl('', Validators.required),
       document: new FormControl('', Validators.required),
-      cep: new FormControl('', Validators.required),
+      address: new FormControl('', Validators.required),
       gender: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
     });

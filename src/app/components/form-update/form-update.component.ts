@@ -28,21 +28,21 @@ export class FormUpdateComponent implements OnInit {
       lastName: new FormControl(this.data.lastName, Validators.required),
       age: new FormControl(this.data.age, Validators.required),
       document: new FormControl(this.data.document, Validators.required),
-      cep: new FormControl(this.cep, Validators.required),
+      address: new FormControl(this.cep, Validators.required),
       gender: new FormControl(this.data.gender, Validators.required),
       email: new FormControl(this.data.email, Validators.required),
     });
   }
 
   updateStudent(): void {
-    console.log(this.data.id, this.formulario.value);
     if (this.formulario.valid) {
       this.studentService
         .updateStudent(this.data.id, this.formulario.value)
         .subscribe((data) => console.log('ID' + this.data.id + ' modificado'));
     }
-
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
   }
 
   onNoClick(): void {
